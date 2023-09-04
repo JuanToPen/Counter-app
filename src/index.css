@@ -51,8 +51,32 @@
   margin: auto auto;
 }
 
-#display{
+#oneDigit{
   font-size: 15em;
+}
+
+#twoDigits{
+  font-size: 12em;
+}
+
+#threeDigits{
+  font-size: 9.5em;
+}
+
+#fourDigits{
+  font-size: 7em;
+}
+
+#fiveDigits{
+  font-size: 5em;
+}
+
+#sixDigits{
+  font-size: 3em;
+}
+
+#unlimitedDigits{
+  font-size: 1em;
 }
 
 #display:hover{
@@ -65,12 +89,13 @@
   transition: width 0.3s ease;
   padding: 2vw;
   border-style: solid;
-  border-color: white;
+  border-color: rgb(0, 0, 0);
   border-width: 1.5px;
 }
 
 #increment:hover{
-  border-color: rgb(180, 180, 180);
+  border-color: rgb(92, 92, 92);
+  transition: border-color 0.2s ease;
   cursor: pointer;
 }
 
@@ -82,12 +107,13 @@
   transition: width 0.3s ease;
   padding: 2vw;
   border-style: solid;
-  border-color: white;
+  border-color: rgb(0, 0, 0);
   border-width: 1.5px;
 }
 
 #decrement:hover{
-  border-color: rgb(180, 180, 180);
+  border-color: rgb(92, 92, 92);
+  transition: border-color 0.2s ease;
   cursor: pointer;
 }
 

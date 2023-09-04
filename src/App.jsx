@@ -36,7 +36,25 @@ function App() {
       </div>
       <div id="content">
         <img id="decrement" src={minus} onClick={decrement} />
-        <p id="display">{count}</p>
+        <p
+          id={
+            count > 999999
+              ? "unlimitedDigits"
+              : count > 99999
+              ? "sixDigits"
+              : count > 9999
+              ? "fiveDigits"
+              : count > 999
+              ? "fourDigits"
+              : count > 99
+              ? "threeDigits"
+              : count > 9
+              ? "twoDigits"
+              : "oneDigit"
+          }
+        >
+          {count}
+        </p>
         <img id="increment" src={plus} onClick={increment} />
       </div>
       {isVisible && (
@@ -50,7 +68,14 @@ function App() {
               ✕
             </button>
             <p>
-              SET COUNT: <input type="number" id="setCount" />
+              SET COUNT:
+              <input
+                type="number"
+                id="setCount"
+                onChange={(e) => {
+                  setCount(parseInt(e.target.value));
+                }}
+              />
             </p>
             <div id="colors">
               <div id="red" className="color"></div>
