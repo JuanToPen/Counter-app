@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Phudu&display=swap');
 
+html{
+  font-size: 32px;
+  transition: font-size 0.3s ease;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -46,45 +51,43 @@
 #content{
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin: auto auto;
 }
 
 #oneDigit{
-  font-size: 15em;
+  font-size: 12rem;
 }
 
 #twoDigits{
-  font-size: 12em;
+  font-size: 11rem;
 }
 
 #threeDigits{
-  font-size: 9.5em;
+  font-size:9rem;
 }
 
 #fourDigits{
-  font-size: 7em;
+  font-size:8rem;
 }
 
 #fiveDigits{
-  font-size: 5em;
+  font-size:6.5rem;
 }
 
 #sixDigits{
-  font-size: 3em;
+  font-size:5.5rem;
 }
 
-#unlimitedDigits{
-  font-size: 1em;
-}
 
 #display:hover{
   cursor: default;
 }
 
 #increment{
-  width: 5%;
+  margin-right: 5vw;
+  width: 4%;
   border-radius: 5em;
   transition: width 0.3s ease;
   padding: 2vw;
@@ -100,6 +103,7 @@
 }
 
 #decrement{
+  margin-left: 5vw;
   text-align: center;
   font-size: 5em;
   width: 4%;
@@ -141,15 +145,15 @@
 
 #settingsContent{
   background-color: #ffffff;
-  width: 500px;
-  border-radius: 2em;
+  width: 400px;
+  border-radius: 1em;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
 }
 
 #settingsContent p{
-  font-size: 2em;
+  font-size: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,7 +163,7 @@
   align-self: flex-end;
   margin-top: 10px;
   margin-right: 10px;
-  font-size: 1.5em;
+  font-size: 0.75em;
   padding:0.5vw 1vw;
   background-color: rgb(255, 255, 255);
   border-style: none;
@@ -174,7 +178,7 @@
 #setCount{
   width: 70px;
   margin-left: 10px;
-  font-size: 1.2em;
+  font-size: 0.8em;
 }
 
 #colors{
@@ -186,10 +190,17 @@
 }
 
 .color{
-  border-radius: 1em;
-  width: 50px;
-  height: 50px;
+  border-radius: 10px;
+  width: 42px;
+  height: 45px;
   margin: 1vh 10px;
+  transition: transform ease 0.3s;
+}
+
+.color:hover{
+  cursor: pointer;
+  transform: scale(1.15);
+  transition: transform ease 0.3s;
 }
 
 #red{
@@ -216,13 +227,101 @@
   background-color: purple;
 }
 
-@media (max-width: 750px) {
+#lowBar{
+  display: none;
+}
+
+@media (max-width: 800px) {
+  html{
+    font-size: 16px;
+    transition: font-size 0.3s ease;
+  }
   #increment{
     width:10%;
     transition: width 0.3s ease;
   }
   #decrement{
-    width:8%;
+    width:10%;
     transition: width 0.3s ease;
+  }
+  #setCount{
+    font-size: 1.2em;
+    transition: font-size 0.3s ease;
+  }
+  #settingsContent p{
+    font-size: 2em;
+    transition: font-size 0.3s ease;
+  }
+  #settingsContent{
+    border-radius: 2em;
+    transition: border-radius 0.3s ease;
+  }
+  #settingsContent button{
+    font-size: 1.5em;
+    transition: font-size 0.3s ease;
+  }
+  #sixDigits{
+    font-size: 7rem;
+  }
+}
+
+@media (max-width: 500px) {
+  #settingsContent {
+    width: 300px;
+    border-radius: 1em;
+  }
+  .color{
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+  }
+  #setCount{
+    width:50px;
+  }
+  #sixDigits{
+    font-size: 5rem;
+  }
+  #increment{
+    display: none;
+  }
+  #decrement{
+    display: none;
+  }
+  #content{
+    justify-content: center;
+  }
+  #lowBar{
+    margin-bottom: 3vh;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+  }
+  #lowBarIncrement{
+    margin-right: 5vw;
+    width: 50px;
+    border-radius: 5em;
+    padding: 2vw;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-width: 1.5px;
+  }
+  #lowBarIncrement:hover{
+    border-color: rgb(92, 92, 92);
+    transition: border-color 0.2s ease;
+    cursor: pointer;
+  }
+  #lowBarDecrement{
+    margin-left: 5vw;
+    width: 50px;
+    border-radius: 5em;
+    padding: 2vw;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-width: 1.5px;
+  }
+  #lowBarDecrement:hover{
+    border-color: rgb(92, 92, 92);
+    transition: border-color 0.2s ease;
+    cursor: pointer;
   }
 }

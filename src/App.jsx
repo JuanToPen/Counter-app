@@ -38,17 +38,15 @@ function App() {
         <img id="decrement" src={minus} onClick={decrement} />
         <p
           id={
-            count > 999999
-              ? "unlimitedDigits"
-              : count > 99999
+            count > 99999 || count < -99999
               ? "sixDigits"
-              : count > 9999
+              : count > 9999 || count < -9999
               ? "fiveDigits"
-              : count > 999
+              : count > 999 || count < -999
               ? "fourDigits"
-              : count > 99
+              : count > 99 || count < -99
               ? "threeDigits"
-              : count > 9
+              : count > 9 || count < -9
               ? "twoDigits"
               : "oneDigit"
           }
@@ -56,6 +54,10 @@ function App() {
           {count}
         </p>
         <img id="increment" src={plus} onClick={increment} />
+      </div>
+      <div id="lowBar">
+        <img src={minus} onClick={decrement} id="lowBarDecrement" />
+        <img src={plus} onClick={increment} id="lowBarIncrement" />
       </div>
       {isVisible && (
         <div id="settingsModal">
@@ -73,7 +75,17 @@ function App() {
                 type="number"
                 id="setCount"
                 onChange={(e) => {
-                  setCount(parseInt(e.target.value));
+                  if (
+                    parseInt(e.target.value) > 0 &&
+                    e.target.value.length <= 6
+                  ) {
+                    setCount(parseInt(e.target.value));
+                  } else if (
+                    parseInt(e.target.value) < 0 &&
+                    e.target.value.length <= 7
+                  ) {
+                    setCount(parseInt(e.target.value));
+                  }
                 }}
               />
             </p>
