@@ -1,8 +1,8 @@
 import { useState } from "react";
-import minus from "./imgs/minus.png";
-import plus from "./imgs/plus.png";
 import reload from "./imgs/reload.png";
-import settings from "./imgs/settings.png";
+import reloadWhite from "./imgs/reloadWhite.png";
+import settings from "./imgs/settingsBlack.png";
+import settingsWhite from "./imgs/settingsWhite.png";
 
 function App() {
   let [count, setCount] = useState(0);
@@ -27,15 +27,17 @@ function App() {
           }}
         />
         <img
-          id="settings"
           src={settings}
+          id="settings"
           onClick={() => {
             setIsVisible(true);
           }}
         />
       </div>
       <div id="content">
-        <img id="decrement" src={minus} onClick={decrement} />
+        <button id="decrement" onClick={decrement}>
+          -
+        </button>
         <p
           id={
             count > 99999 || count < -99999
@@ -53,11 +55,17 @@ function App() {
         >
           {count}
         </p>
-        <img id="increment" src={plus} onClick={increment} />
+        <button id="increment" onClick={increment}>
+          +
+        </button>
       </div>
       <div id="lowBar">
-        <img src={minus} onClick={decrement} id="lowBarDecrement" />
-        <img src={plus} onClick={increment} id="lowBarIncrement" />
+        <button onClick={decrement} id="lowBarDecrement">
+          -
+        </button>
+        <button onClick={increment} id="lowBarIncrement">
+          +
+        </button>
       </div>
       {isVisible && (
         <div id="settingsModal">
@@ -90,12 +98,48 @@ function App() {
               />
             </p>
             <div id="colors">
-              <div id="red" className="color"></div>
-              <div id="blue" className="color"></div>
-              <div id="green" className="color"></div>
-              <div id="yellow" className="color"></div>
-              <div id="orange" className="color"></div>
-              <div id="purple" className="color"></div>
+              <div
+                id="red"
+                className="color"
+                onClick={() => {
+                  document.documentElement.style.setProperty(
+                    "--background-color",
+                    "#c40a0a"
+                  );
+                }}
+              ></div>
+              <div
+                id="blue"
+                className="color"
+                onClick={() => {
+                  document.documentElement.style.setProperty(
+                    "--background-color",
+                    "#0d58d9"
+                  );
+                }}
+              ></div>
+              <div
+                id="green"
+                className="color"
+                onClick={() => {
+                  document.documentElement.style.setProperty(
+                    "--background-color",
+                    "#1cd660"
+                  );
+                }}
+              ></div>
+              <div
+                id="purple"
+                className="color"
+                onClick={() => {
+                  document.documentElement.style.setProperty(
+                    "--background-color",
+                    "#6b0cf0"
+                  );
+                }}
+              ></div>
+              <div id="colorful" className="color"></div>
+              <div id="white" className="color"></div>
             </div>
           </div>
         </div>
