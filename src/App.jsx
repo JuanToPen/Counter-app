@@ -1,41 +1,54 @@
 import { useState } from "react";
-import reload from "./imgs/reload.png";
-import reloadWhite from "./imgs/reloadWhite.png";
-import settings from "./imgs/settingsBlack.png";
-import settingsWhite from "./imgs/settingsWhite.png";
 
 function App() {
   let [count, setCount] = useState(0);
-  let [isVisible, setIsVisible] = useState(false);
+  let [isModalVisible, setIsModalVisible] = useState(false);
 
-  function increment() {
-    setCount((count += 1));
+  function toWhite() {
+    document.documentElement.style.setProperty("--digit-color", "white");
+    document.documentElement.style.setProperty(
+      "--border-color",
+      "rgb(168, 168, 168)"
+    );
+    document.documentElement.style.setProperty("--hover-color", "white");
   }
 
-  function decrement() {
-    setCount((count -= 1));
+  function toBlack() {
+    document.documentElement.style.setProperty("--digit-color", "black");
+    document.documentElement.style.setProperty("--border-color", "black");
+    document.documentElement.style.setProperty(
+      "--hover-color",
+      "rgb(92, 92, 92)"
+    );
   }
 
   return (
     <div id="body">
       <div id="options">
-        <img
+        <button
           id="refresh"
-          src={reload}
           onClick={() => {
             setCount(0);
           }}
-        />
-        <img
-          src={settings}
+        >
+          ⟳
+        </button>
+        <button
           id="settings"
           onClick={() => {
-            setIsVisible(true);
+            setIsModalVisible(true);
           }}
-        />
+        >
+          ⚙︎
+        </button>
       </div>
       <div id="content">
-        <button id="decrement" onClick={decrement}>
+        <button
+          id="decrement"
+          onClick={() => {
+            setCount((count -= 1));
+          }}
+        >
           -
         </button>
         <p
@@ -55,24 +68,39 @@ function App() {
         >
           {count}
         </p>
-        <button id="increment" onClick={increment}>
+        <button
+          id="increment"
+          onClick={() => {
+            setCount((count += 1));
+          }}
+        >
           +
         </button>
       </div>
       <div id="lowBar">
-        <button onClick={decrement} id="lowBarDecrement">
+        <button
+          onClick={() => {
+            setCount((count -= 1));
+          }}
+          id="lowBarDecrement"
+        >
           -
         </button>
-        <button onClick={increment} id="lowBarIncrement">
+        <button
+          onClick={() => {
+            setCount((count += 1));
+          }}
+          id="lowBarIncrement"
+        >
           +
         </button>
       </div>
-      {isVisible && (
+      {isModalVisible && (
         <div id="settingsModal">
           <div id="settingsContent">
             <button
               onClick={() => {
-                setIsVisible(false);
+                setIsModalVisible(false);
               }}
             >
               ✕
@@ -106,6 +134,7 @@ function App() {
                     "--background-color",
                     "#c40a0a"
                   );
+                  toWhite();
                 }}
               ></div>
               <div
@@ -116,6 +145,7 @@ function App() {
                     "--background-color",
                     "#0d58d9"
                   );
+                  toWhite();
                 }}
               ></div>
               <div
@@ -126,6 +156,7 @@ function App() {
                     "--background-color",
                     "#1cd660"
                   );
+                  toBlack();
                 }}
               ></div>
               <div
@@ -136,10 +167,31 @@ function App() {
                     "--background-color",
                     "#6b0cf0"
                   );
+                  toWhite();
                 }}
               ></div>
-              <div id="colorful" className="color"></div>
-              <div id="white" className="color"></div>
+              <div
+                id="colorful"
+                className="color"
+                onClick={() => {
+                  document.documentElement.style.setProperty(
+                    "--background-color",
+                    "linear-gradient(to bottom,#f01f0c,#f0bb0c,#d9f00c,#41f00c,#0c32f0,#a80cf0,red)"
+                  );
+                  toBlack();
+                }}
+              ></div>
+              <div
+                id="white"
+                className="color"
+                onClick={() => {
+                  document.documentElement.style.setProperty(
+                    "--background-color",
+                    "white"
+                  );
+                  toBlack();
+                }}
+              ></div>
             </div>
           </div>
         </div>

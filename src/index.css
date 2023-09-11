@@ -15,15 +15,19 @@ html{
 
 #settings{
   margin-left: 1vw;
-  font-size: 4em;
+  font-size: 2em;
   font-weight: 900;
-  width: 50px;
+  background-color: transparent;
+  border-style: none;
+  color:var(--digit-color, black)
 }
 
 #refresh{
-  width: 50px;
   margin-right: 1vw;
-  font-size: 4em;
+  font-size: 2em;
+  background-color: transparent;
+  border-style: none;
+  color:var(--digit-color, black)
 }
 
 #refresh:hover{
@@ -43,9 +47,10 @@ html{
 }
 
 #options{
-  margin-top: 2vh;
+  margin-top: 1vh;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 #content{
@@ -58,26 +63,32 @@ html{
 
 #oneDigit{
   font-size: 12rem;
+  color:var(--digit-color, black)
 }
 
 #twoDigits{
   font-size: 11rem;
+  color:var(--digit-color, black)
 }
 
 #threeDigits{
   font-size:9rem;
+  color:var(--digit-color, black)
 }
 
 #fourDigits{
   font-size:8rem;
+  color:var(--digit-color, black)
 }
 
 #fiveDigits{
   font-size:6.5rem;
+  color:var(--digit-color, black)
 }
 
 #sixDigits{
   font-size:5.5rem;
+  color:var(--digit-color, black)
 }
 
 
@@ -86,6 +97,7 @@ html{
 }
 
 #increment{
+  color:var(--digit-color, black);
   margin-right: 5vw;
   width:100px;
   font-size: 2.5rem;
@@ -94,17 +106,18 @@ html{
   font-weight: 900;
   border-style: solid;
   background-color: transparent;
-  border-color: rgb(0, 0, 0);
+  border-color:var(--border-color, black);
   border-width: 1.5px;
 }
 
 #increment:hover{
-  border-color: rgb(92, 92, 92);
+  border-color:var(--hover-color, rgb(92, 92, 92));
   transition: border-color 0.2s ease;
   cursor: pointer;
 }
 
 #decrement{
+  color:var(--digit-color, black);
   margin-left: 5vw;
   text-align: center;
   width:100px;
@@ -114,18 +127,19 @@ html{
   transition: width 0.3s ease;
   border-style: solid;
   background-color: transparent;
-  border-color: rgb(0, 0, 0);
+  border-color:var(--border-color, black);
   border-width: 1.5px;
 }
 
 #decrement:hover{
-  border-color: rgb(92, 92, 92);
+  border-color:var(--hover-color, rgb(92, 92, 92));
   transition: border-color 0.2s ease;
   cursor: pointer;
 }
 
 #body{
-  background-color: var(--background-color,white);
+  background:var(--background-color, white);
+  background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -228,7 +242,7 @@ html{
 }
 
 #colorful{
-  background: linear-gradient(to bottom,#f01f0c,#f0bb0c,#d9f00c,#41f00c,#0c32f0,#a80cf0,red);
+  background-image: linear-gradient(to bottom,#f01f0c,#f0bb0c,#d9f00c,#41f00c,#0c32f0,#a80cf0,red);
   border-style: solid;
   border-width: 0.5px;
   border-color: transparent;
@@ -255,6 +269,12 @@ html{
   html{
     font-size: 16px;
     transition: font-size 0.3s ease;
+  }
+  #settings{
+    font-size: 4em;
+  }
+  #refresh{
+    font-size: 4em;
   }
   #increment{
     width: 80px;
@@ -322,33 +342,71 @@ html{
     justify-content: space-between;
   }
   #lowBarIncrement{
+    color:var(--digit-color,rgb(0, 0, 0));
     margin-right: 5vw;
     width: 70px;
     background-color: transparent;
     font-size: 3.5rem;
     border-radius: 5em;
     border-style: solid;
-    border-color: rgb(0, 0, 0);
+    border-color: var(--border-color,rgb(0, 0, 0));
     border-width: 1.5px;
   }
   #lowBarIncrement:hover{
-    border-color: rgb(92, 92, 92);
+    border-color: var(--hover-color,rgb(92, 92, 92));
     transition: border-color 0.2s ease;
     cursor: pointer;
   }
   #lowBarDecrement{
+    color:var(--digit-color,rgb(0, 0, 0));
     background-color: transparent;
     margin-left: 5vw;
     width: 70px;
     font-size: 3.5rem;
     border-radius: 5em;
     border-style: solid;
-    border-color: rgb(0, 0, 0);
+    border-color: var(--border-color,rgb(0, 0, 0));
     border-width: 1.5px;
   }
   #lowBarDecrement:hover{
-    border-color: rgb(92, 92, 92);
+    border-color: var(--hover-color,rgb(92, 92, 92));
     transition: border-color 0.2s ease;
     cursor: pointer;
+  }
+}
+
+@media (min-width: 2000px){
+  #refresh{
+    font-size: 4em;
+  }
+  #settings{
+    font-size: 4em;
+  }
+  #increment{
+    font-size: 4.5rem;
+    width:180px;
+  }
+  #decrement{
+    font-size: 4.5rem;
+    width:180px;
+  }
+  #settingsContent {
+    width: 500px;
+    border-radius: 1em;
+  }
+  #settingsContent p{
+    margin-top: 2vh;
+    font-size: 1.5rem;
+  }
+  .color{
+    width: 110px;
+    height: 110px;
+    border-radius: 6px;
+  }
+  #setCount{
+    width:50px;
+  }
+  #settingsContent button{
+    font-size: 1.5rem;
   }
 }
